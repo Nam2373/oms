@@ -1,8 +1,9 @@
+
 import axios from 'axios';
 import queryString from 'query-string';
 
 const axiosClient = axios.create({
-    baseURL: process.env.REACT_APP_API_URL_TEST,
+    baseURL: 'http://10.0.100.118:8089',
     headers: {
         'content-type': 'application/json',
     },
@@ -21,12 +22,11 @@ axiosClient.interceptors.request.use(async (config) => {
     return config;
 })
 axiosClient.interceptors.response.use((response) => {
-    if (response && response.đata) {
+    if (response && response.data) {
         return response
     }
     return response;
 }, (error) => {
-    // Handle errors
-    throw error;
+    throw error.response.data
 });
 export default axiosClient;

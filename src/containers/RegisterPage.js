@@ -1,22 +1,23 @@
 import { StyledRegisterPage } from "./styled/register.styled";
-import { Button, Col, Form, Input, Row, message } from "antd";
+import { Button, Col, Form, Input, Row, message, Alert } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
 
 const Register = (props) => {
     const router = useRouter();
+
     const Register = async (payload) => {
         try {
-            const data = await userAPI.REGISTER;
-
+            const result = await userAPI.REGISTER(payload)
             message.success({
-                content: "Register success!",
-            });
-
+                content: result.data.data
+            })
             setTimeout(() => {
-                router.push("/login");
-            }, 2000);
-        } catch (error) { }
+                router.push('/login')
+            }, 1500)
+        } catch (error) {
+            message.error({ content: error.error.message })
+        }
     };
 
     return (
@@ -71,33 +72,6 @@ const Register = (props) => {
                             >
                                 <Input.Password size="large" placeholder="Password" />
                             </Form.Item>
-
-                            <Form.Item
-                                name="confirmPassword"
-                                className="input"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "Please input your confirm password!",
-                                    },
-                                    ({ getFieldValue }) => ({
-                                        validator(_, value) {
-                                            if (
-                                                !value ||
-                                                (value && getFieldValue("password") === value)
-                                            ) {
-                                                return Promise.resolve();
-                                            }
-                                            return Promise.reject(
-                                                new Error("Confirm password do not match!")
-                                            );
-                                        },
-                                    }),
-                                ]}
-                            >
-                                <Input.Password size="large" placeholder="Confirm password" />
-                            </Form.Item>
-
                             <Form.Item>
                                 <Button type="primary" htmlType="submit" block size="large">
                                     SIGN UP
