@@ -1,4 +1,4 @@
-import { StyledRegisterPage } from "./login.styled";
+import { StyledRegisterPage } from "./styled/login.styled";
 import { Button, Col, Form, Input, Row, message } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
@@ -15,10 +15,6 @@ const Login = (props) => {
 
             localStorage.setItem("accessToken", result?.data?.accessToken);
             localStorage.setItem("refreshToken", result?.data?.refreshToken);
-
-            // setTimeout(() => {
-            //   router.push("/login");
-            // }, 2000);
         } catch (error) { }
     };
 

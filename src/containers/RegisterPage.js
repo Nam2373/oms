@@ -1,4 +1,4 @@
-import { StyledRegisterPage } from "./register.styled";
+import { StyledRegisterPage } from "./styled/register.styled";
 import { Button, Col, Form, Input, Row, message } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
