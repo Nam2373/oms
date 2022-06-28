@@ -9,7 +9,7 @@ const Register = (props) => {
 
   setTimeout(() => {
     setPageLoading(true);
-  }, 1000);
+  }, 1200);
 
   return !pageLoading ? <Loading /> : <RegisterPage />;
 };

@@ -1,5 +1,5 @@
 import { StyledRegisterPage } from "./styled/login.styled";
-import { Button, Col, Form, Input, Row, message } from "antd";
+import { Button, Col, Form, Input, Row, message, notification } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
 
@@ -7,15 +7,27 @@ const Login = (props) => {
     const router = useRouter();
     const Login = async (payload) => {
         try {
-            const result = await userAPI.LOGIN;
-            console.log(result);
-            message.success({
-                content: "Login success!",
-            });
+            const result = await userAPI.LOGIN(payload);
+            notification.success({
+                message: 'Login success!',
+                placement: 'top',
+                duration: 1.5
+            })
 
-            localStorage.setItem("accessToken", result?.data?.accessToken);
-            localStorage.setItem("refreshToken", result?.data?.refreshToken);
-        } catch (error) { }
+            localStorage.setItem("accessToken", result?.data?.data?.accessToken);
+            localStorage.setItem("refreshToken", result?.data?.data?.refreshToken);
+
+            setTimeout(() => {
+                router.push('/')
+            }, 1500)
+
+        } catch (error) {
+            notification.error({
+                message: error?.error?.message,
+                placement: 'top',
+                duration: 1.5
+            })
+        }
     };
 
     return (
@@ -30,7 +42,7 @@ const Login = (props) => {
 
                         <Form name="basic" onFinish={(values) => Login(values)}>
                             <Form.Item
-                                name="username"
+                                name="email"
                                 className="input"
                                 rules={[
                                     { required: true, message: "Please input your username!" },
@@ -42,7 +54,7 @@ const Login = (props) => {
                             >
                                 <Input
                                     size="large"
-                                    placeholder="Username"
+                                    placeholder="Email"
                                     style={{ borderRadius: "10px" }}
                                 />
                             </Form.Item>

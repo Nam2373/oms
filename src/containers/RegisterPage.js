@@ -1,5 +1,5 @@
 import { StyledRegisterPage } from "./styled/register.styled";
-import { Button, Col, Form, Input, Row, message, Alert } from "antd";
+import { Button, Col, Form, Input, Row, notification } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
 
@@ -9,14 +9,21 @@ const Register = (props) => {
     const Register = async (payload) => {
         try {
             const result = await userAPI.REGISTER(payload)
-            message.success({
-                content: result.data.data
+            notification.success({
+                message: result.data.data,
+                placement: 'top',
+                duration: 1.5
             })
+
             setTimeout(() => {
                 router.push('/login')
             }, 1500)
         } catch (error) {
-            message.error({ content: error.error.message })
+            notification.error({
+                message: error.error.message,
+                placement: 'top',
+                duration: 1.5
+            })
         }
     };
 
