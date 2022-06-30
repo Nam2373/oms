@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AuthGuard from '../src/components/Authentication/authen';
 import Loading from '../src/components/Loading'
 
 const Home = () => {
@@ -11,13 +12,10 @@ const Home = () => {
   return !pageLoading ? <Loading /> : <h1>Home Page</h1>;
 }
 
-export default Home
+Home.getLayout = (page) => (
+  <AuthGuard>
+    {page}
+  </AuthGuard>
+)
 
-// export async function getServerSideProps() {
-//   return {
-//     redirect: {
-//       permanent: false,
-//       destination: '/register'
-//     }
-//   }
-// }
+export default Home
