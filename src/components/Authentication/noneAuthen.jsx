@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { PATH } from '../../constants/path'
 
 const NoneAuthen = ({ children }) => {
     const router = useRouter()
@@ -12,7 +13,9 @@ const NoneAuthen = ({ children }) => {
             return
         }
         if (accessToken) {
-            router.push('/')
+            router.push({
+                pathname: PATH.HOME
+            })
         } else {
             setChecked(true)
         }

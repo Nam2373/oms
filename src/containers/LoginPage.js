@@ -2,6 +2,7 @@ import { StyledRegisterPage } from "./styled/login.styled";
 import { Button, Col, Form, Input, Row, message, notification } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
+import { PATH } from '../../src/constants/path'
 
 const Login = (props) => {
     const router = useRouter();
@@ -18,7 +19,7 @@ const Login = (props) => {
             localStorage.setItem("refreshToken", result?.data?.data?.refreshToken);
 
             setTimeout(() => {
-                router.push('/')
+                router.push(PATH.HOME)
             }, 1500)
 
         } catch (error) {

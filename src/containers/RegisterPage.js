@@ -2,6 +2,7 @@ import { StyledRegisterPage } from "./styled/register.styled";
 import { Button, Col, Form, Input, Row, notification } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
+import { PATH } from '../../src/constants/path'
 
 const Register = (props) => {
     const router = useRouter();
@@ -16,7 +17,7 @@ const Register = (props) => {
             })
 
             setTimeout(() => {
-                router.push('/login')
+                router.push(PATH.LOGIN)
             }, 1500)
         } catch (error) {
             notification.error({

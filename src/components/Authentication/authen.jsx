@@ -1,27 +1,28 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { PATH } from '../../constants/path'
 
-const AuthGuard = ({children})=> {
+const AuthGuard = ({ children }) => {
     const router = useRouter()
     const [checked, setChecked] = useState(false)
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         const accessToken = localStorage.getItem('accessToken')
-        if(!router.isReady){
+        if (!router.isReady) {
             return
         }
-        if(!accessToken){
+        if (!accessToken) {
             router.push({
-                pathname:'/login',
-                query:{returnUrl: router.asPath}
+                pathname: PATH.LOGIN,
+                query: { returnUrl: router.asPath }
             })
-        }else{
+        } else {
             setChecked(true)
         }
-    },[router.isReady])
+    }, [router.isReady])
 
-    if(!checked){
+    if (!checked) {
         return null
     }
     return <>{children}</>
