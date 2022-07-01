@@ -1,21 +1,14 @@
-import { useState } from 'react';
-import AuthGuard from '../src/components/Authentication/authen';
-import Loading from '../src/components/Loading'
+import AuthGuard from "../src/components/Authentication/authen";
+import MainLayout from "../src/components/Layout/mainLayout";
 
 const Home = () => {
-  const [pageLoading, setPageLoading] = useState(false);
-
-  setTimeout(() => {
-    setPageLoading(true);
-  }, 1200);
-
-  return !pageLoading ? <Loading /> : <h1>Home Page</h1>;
-}
+  return <h1>Home Page</h1>;
+};
 
 Home.getLayout = (page) => (
   <AuthGuard>
-    {page}
+    <MainLayout>{page}</MainLayout>
   </AuthGuard>
-)
+);
 
-export default Home
+export default Home;
