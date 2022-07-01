@@ -1,7 +1,7 @@
 const PATH = {
-    HOME: '/',
-    LOGIN: '/login',
-    REGISTER: '/register',
-}
+  HOME: "/home",
+  LOGIN: "/login",
+  REGISTER: "/register",
+};
 
-export { PATH }
+export { PATH };

@@ -84,6 +84,7 @@ export const StyledHeader = styled(Header)`
           background: url("/img/avatar.jpg");
           background-position: center;
           background-size: cover;
+          cursor: pointer;
         }
       }
     }

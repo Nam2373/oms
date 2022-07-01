@@ -1,14 +1,18 @@
 import AuthGuard from "../src/components/Authentication/authen";
 import MainLayout from "../src/components/Layout/mainLayout";
+import { PATH } from "../src/constants/path";
 
-const Home = () => {
-  return <h1>Home Page</h1>;
+const Index = () => {
+  return <></>;
 };
 
-Home.getLayout = (page) => (
-  <AuthGuard>
-    <MainLayout>{page}</MainLayout>
-  </AuthGuard>
-);
+export default Index;
 
-export default Home;
+export async function getServerSideProps() {
+  return {
+    redirect: {
+      permanent: false,
+      destination: PATH.HOME,
+    },
+  };
+}

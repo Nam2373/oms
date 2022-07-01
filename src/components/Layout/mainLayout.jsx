@@ -1,10 +1,11 @@
-import { Button, Input, Layout, Menu } from "antd";
+import { Button, Input, Layout, Dropdown, Menu, Space } from "antd";
 import { StyledHeader, Container } from "./mainLayout.styled";
 import { SearchOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import CartIcon from "../../../public/icon/cart.icon";
 import NotificationIcon from "../../../public/icon/notification.icon";
-const { Header, Content, Footer } = Layout;
+import AvatarDropdown from "./avatarDropdown";
+const { Content } = Layout;
 
 const MainLayout = ({ children }) => {
   return (
@@ -56,8 +57,10 @@ const MainLayout = ({ children }) => {
               <div className="info-item">
                 <NotificationIcon />
               </div>
-              <div className="info-item">
-                <div className="avatar"></div>
+              <div className="info-item ">
+                <AvatarDropdown>
+                  <div className="avatar"></div>
+                </AvatarDropdown>
               </div>
             </div>
           </div>

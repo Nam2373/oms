@@ -13,6 +13,7 @@ export const StyledRegisterPage = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: "Montserrat";
 
     .ant-form {
       width: 100%;
@@ -22,9 +23,9 @@ export const StyledRegisterPage = styled.div`
         margin-bottom: 24px;
 
         .forgot-pwd {
-            text-align: right;
-            text-decoration: underline;
-            margin-top: 8px;
+          text-align: right;
+          text-decoration: underline;
+          margin-top: 8px;
         }
 
         .ant-input-affix-wrapper {

@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
   setTimeout(() => {
     setPageLoading(true);
   }, 1200);
+
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return !pageLoading ? <Loading /> : getLayout(<Component {...pageProps} />);
