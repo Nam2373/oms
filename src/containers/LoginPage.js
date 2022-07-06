@@ -3,6 +3,7 @@ import { Button, Col, Form, Input, Row, message, notification } from "antd";
 import { userAPI } from "../../src/services/userServices";
 import { useRouter } from "next/router";
 import { PATH } from "../../src/constants/path";
+import Link from "next/link";
 
 const Login = (props) => {
   const router = useRouter();
@@ -68,12 +69,16 @@ const Login = (props) => {
               >
                 <Input.Password size="large" placeholder="Password" />
               </Form.Item>
-
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   SIGN IN
                 </Button>
               </Form.Item>
+              <div style={{ textAlign: "right" }}>
+                <Link href={PATH.REGISTER}>
+                  <a>Sign up</a>
+                </Link>
+              </div>
             </Form>
           </Col>
         </Row>
