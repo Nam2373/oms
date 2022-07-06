@@ -77,8 +77,10 @@ const Register = props => {
 
                       if (!testResult) {
                         return Promise.reject(
-                          new Error('Your password must be 6 letter, including [A-Z][a-z] and digit letter! ')
+                          new Error('Your password must be 6 letter, including [A-Z][a-z] and digit letter!')
                         )
+                      } else {
+                        return Promise.resolve()
                       }
                     }
                   })
