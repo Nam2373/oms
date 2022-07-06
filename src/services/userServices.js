@@ -1,15 +1,18 @@
-import axiosClient from "./setup/axiosClients";
+import axiosClient from './setup/axiosClients'
 
 const userAPI = {
-  REGISTER: (payload) => {
-    return axiosClient.post("/api/v1/users/register", payload);
+  REGISTER: payload => {
+    return axiosClient.post('/api/v1/users/register', payload)
   },
-  LOGIN: (payload) => {
-    return axiosClient.post("/api/v1/users/login", payload);
+  LOGIN: payload => {
+    return axiosClient.post('/api/v1/users/login', payload)
   },
   LOGOUT: () => {
-    return axiosClient.post("/api/v1/logout");
+    return axiosClient.post('/api/v1/logout')
   },
-};
+  GET_ME: () => {
+    return axiosClient.get('/api/v1/users/me')
+  }
+}
 
-export { userAPI };
+export { userAPI }

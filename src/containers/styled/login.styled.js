@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { down } from "styled-breakpoints";
+import styled from 'styled-components'
+import { down } from 'styled-breakpoints'
 
 export const StyledRegisterPage = styled.div`
   height: 100vh;
@@ -13,7 +13,7 @@ export const StyledRegisterPage = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
 
     .ant-form {
       width: 100%;
@@ -48,9 +48,9 @@ export const StyledRegisterPage = styled.div`
     }
   }
 
-  ${down("lg")} {
-    .main-bg {
-      display: none;
+  ${down('lg')} {
+    .ant-form {
+      max-width: 600px;
     }
 
     .main-login {
@@ -63,4 +63,4 @@ export const StyledRegisterPage = styled.div`
       }
     }
   }
-`;
+`

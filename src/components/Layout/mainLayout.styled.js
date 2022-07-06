@@ -1,10 +1,10 @@
-import { Layout, Menu } from "antd";
-import styled from "styled-components";
+import { Layout, Menu } from 'antd'
+import styled from 'styled-components'
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content, Footer } = Layout
 
 export const StyledHeader = styled(Header)`
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   padding: 0;
   height: fit-content;
   background: #ffdcc5;
@@ -18,14 +18,14 @@ export const StyledHeader = styled(Header)`
     .logo {
       height: 57px;
       width: 60px;
-      background: url("/img/logo_only.png");
+      background: url('/img/logo_only.png');
     }
 
     .logo-title {
       height: 30px;
       width: 195px;
       background-color: red;
-      background: url("/img/logo_title.png") no-repeat;
+      background: url('/img/logo_title.png') no-repeat;
     }
 
     .search-box {
@@ -81,7 +81,7 @@ export const StyledHeader = styled(Header)`
           background-color: green;
           border-radius: 50%;
           border: 2px solid #ff6600;
-          background: url("/img/avatar.jpg");
+          background: url('/img/avatar.jpg');
           background-position: center;
           background-size: cover;
           cursor: pointer;
@@ -89,11 +89,11 @@ export const StyledHeader = styled(Header)`
       }
     }
   }
-`;
+`
 
 export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding: 0 16px;
   max-width: 1582px;
-`;
+`

@@ -1,8 +1,8 @@
 import { StyledRegisterPage } from './styled/register.styled'
 import { Button, Col, Form, Input, Row, notification } from 'antd'
-import { userAPI } from '../../src/services/userServices'
+import { userAPI } from '../services/userServices'
 import { useRouter } from 'next/router'
-import { PATH } from '../../src/constants/path'
+import { PATH } from '../constants/path'
 
 const Register = props => {
   const router = useRouter()
