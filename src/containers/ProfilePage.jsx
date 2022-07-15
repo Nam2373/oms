@@ -1,11 +1,15 @@
 import { Button, Col, Row, Space } from 'antd'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { userAPI } from '../services/userServices'
 import { StyledDivUserProfile } from './styled/profile.styled'
+import { PATH } from '../constants/path'
 
 const ProfilePage = props => {
   const [data, setData] = useState({})
+  const router = useRouter()
 
   useEffect(() => {
     const getMe = async () => {
@@ -69,9 +73,19 @@ const ProfilePage = props => {
         </Col>
 
         <Col span={24} className="center">
-          <Button className="update-button" type="primary">
-            Update
-          </Button>
+          <Space>
+            <Button className="update-button" type="primary" onClick={() => router.back()}>
+              Back
+            </Button>
+
+            <Button
+              className="update-button"
+              type="primary"
+              onClick={() => (window.location.href = `${PATH.PROFILE}${PATH.EDIT}`)}
+            >
+              Update
+            </Button>
+          </Space>
         </Col>
       </Row>
     </StyledDivUserProfile>

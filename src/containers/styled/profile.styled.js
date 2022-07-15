@@ -11,10 +11,15 @@ export const StyledDivUserProfile = styled.div`
     padding-bottom: 16px;
   }
 
-  .profile-item-label {
+  .profile-item-label,
+  .ant-form-item-label {
     font-weight: 600;
     font-size: 16px;
     color: #616161;
+    padding: 0;
+  }
+
+  .profile-item-label {
     margin-bottom: 8px;
   }
 
@@ -32,5 +37,9 @@ export const StyledDivUserProfile = styled.div`
     border-radius: 4px;
     background-color: #ff6600;
     border: unset;
+  }
+
+  .ant-form {
+    width: 100%;
   }
 `
