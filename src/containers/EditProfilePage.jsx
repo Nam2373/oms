@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { userAPI } from '../services/userServices'
+import { PATH } from '../constants/path'
 import { StyledDivUserProfile } from './styled/profile.styled'
 
 const ProfilePage = props => {
@@ -42,6 +43,10 @@ const ProfilePage = props => {
         placement: 'top',
         duration: 1.5
       })
+
+      setTimeout(() => {
+        router.push(PATH.PROFILE)
+      }, 1500)
     } catch (error) {}
   }
 
@@ -95,11 +100,6 @@ const ProfilePage = props => {
                 <Select.Option value={'Male'}>Male</Select.Option>
                 <Select.Option value={'Female'}>Female</Select.Option>
               </Select>
-            </Form.Item>
-          </Col>
-          <Col span={24}>
-            <Form.Item name="address" label="Address">
-              <Input size="large" placeholder="Enter your address" />
             </Form.Item>
           </Col>
           <Col span={24}>

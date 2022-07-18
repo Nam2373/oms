@@ -63,12 +63,6 @@ const ProfilePage = props => {
         </Col>
         <Col span={24}>
           <div className="profile-item">
-            <div className="profile-item-label">Address</div>
-            <div className="profile-item-content">{data?.address ?? <span>Not updated</span>}</div>
-          </div>
-        </Col>
-        <Col span={24}>
-          <div className="profile-item">
             <div className="profile-item-label">Ward</div>
             <div className="profile-item-content">{data?.ward ?? <span>Not updated</span>}</div>
           </div>
