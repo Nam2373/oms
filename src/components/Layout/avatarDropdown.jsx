@@ -37,7 +37,7 @@ function AvatarDropdown({ children }) {
     </Menu>
   )
   return (
-    <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
+    <Dropdown overlay={menu} placement="bottom" trigger={['click']}>
       {children}
     </Dropdown>
   )

@@ -12,6 +12,9 @@ const userAPI = {
   },
   GET_ME: () => {
     return axiosClient.get('/api/v1/users/me')
+  },
+  UPDATE_ME: payload => {
+    return axiosClient.post('/api/v1/users/me/update', payload)
   }
 }
 

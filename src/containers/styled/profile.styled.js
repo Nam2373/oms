@@ -25,6 +25,10 @@ export const StyledDivUserProfile = styled.div`
 
   .profile-item-content {
     color: black;
+
+    & span {
+      color: #95a5a6;
+    }
   }
 
   .center {
